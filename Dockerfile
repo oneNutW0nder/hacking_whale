@@ -7,7 +7,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt install -y gdb gdbserver gcc gcc-multil
                     python3 python3-pip python python-pip vim \
                     libseccomp-dev libseccomp-dev:i386 \
                     binutils binwalk curl wget netcat locales \
-                    ruby clang llvm git radare2
+                    ruby clang llvm git radare2 tmux
 
 # Misc Langs and GEF
 RUN python3 -m pip install --upgrade pip
