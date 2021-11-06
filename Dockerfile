@@ -11,7 +11,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt install -y gdb gdbserver gcc gcc-multil
 
 # Misc Langs and GEF
 RUN python3 -m pip install --upgrade pip
-RUN pip3 install ropper capstone keystone-engine pwntools
+RUN python3 -m pip install ropper capstone keystone-engine pwntools
 RUN gem install one_gadget
 RUN wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 
