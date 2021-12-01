@@ -1,6 +1,7 @@
 FROM ubuntu:bionic
 
 # General packages
+WORKDIR /
 RUN dpkg --add-architecture i386
 RUN apt update && apt upgrade
 RUN DEBIAN_FRONTEND="noninteractive" apt install -y gdb gdbserver gcc gcc-multilib \
@@ -14,7 +15,12 @@ RUN DEBIAN_FRONTEND="noninteractive" apt install -y gdb gdbserver gcc gcc-multil
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install ropper capstone keystone-engine pwntools
 RUN gem install one_gadget
+
+# Install GEF
 RUN wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
+
+# Install pwndbg
+#RUN git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh
 
 # Chaning locale for GEF
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
